@@ -1,0 +1,42 @@
+<template>
+    <div class="section-title">Employee Information</div>
+
+    <div class="employee-card">
+        <div class="grid">
+
+            <!-- LEFT COLUMN -->
+            <div class="column">
+                <div class="row">
+                    <div class="label">First Name</div>
+                    <div class="value">{employee.FirstName}</div>
+                </div>
+                <div class="row">
+                    <div class="label">Email</div>
+                    <div class="value">{employee.Email}</div>
+                </div>
+
+                <div class="row">
+                    <div class="label">Department</div>
+                    <div class="value">{employee.Department}</div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="column">
+                <div class="row">
+                    <div class="label">Last Name</div>
+                    <div class="value">{employee.LastName}</div>
+                </div>
+
+                <div class="row">
+                    <div class="label">Country</div>
+                    <div class="value">{employee.Country}</div>
+                </div>
+                
+
+            </div>
+
+        </div>
+    </div>
+</template>

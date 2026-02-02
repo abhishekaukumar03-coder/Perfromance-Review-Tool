@@ -1,0 +1,14 @@
+<template>    
+    <lightning-card title="Self Review">
+        <lightning-datatable
+                key-field="Id"
+                data={goals}
+                columns={columns}
+                draft-values={draftValues}
+                onsave={handleSave}>
+        </lightning-datatable>
+        <div class="slds-m-top_medium">
+            <lightning-button label="Submit Review" variant="brand" onclick={submitReview}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

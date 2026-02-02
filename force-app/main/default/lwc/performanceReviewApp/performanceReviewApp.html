@@ -1,0 +1,42 @@
+<template>
+	<lightning-card title={cardTitle}>
+                
+	<!-- HEADER -->
+        <div class="header slds-p-around_medium">
+        <h2 class="slds-text-heading_medium">
+                Route Map
+        </h2>
+        </div>
+        <!-- ROUTE MAP (Progress Steps) -->
+        <lightning-progress-indicator current-step={currentStep} type="path">
+        <lightning-progress-step label="Introduction" value="intro"></lightning-progress-step>
+        <lightning-progress-step label="Employee Info" value="info"></lightning-progress-step>
+        <lightning-progress-step label="Goals" value="goals"></lightning-progress-step>
+        <lightning-progress-step label="Manager Review" value="manager"></lightning-progress-step>
+        <lightning-progress-step label="Summary" value="summary"></lightning-progress-step>
+        </lightning-progress-indicator>
+        <!-- DYNAMIC CONTENT -->
+        <div class="slds-p-around_medium">
+        <template if:true={isIntro}>
+        <c-intro-section record-id={recordId}></c-intro-section>
+        </template>
+        <template if:true={isInfo}>
+        <c-employee-info-section record-id={recordId}></c-employee-info-section>
+        </template>
+        <template if:true={isGoals}>
+        <c-goals-section record-id={recordId}></c-goals-section>
+        </template>
+        <template if:true={isManager}>
+        <c-manager-section record-id={recordId}></c-manager-section>
+        </template>
+        <template if:true={isSummary}>
+        <c-summary-section record-id={recordId}></c-summary-section>
+        </template>
+        </div> 
+        <!-- FOOTER BUTTONS -->
+        <div class="footer slds-p-around_medium slds-align_absolute-center">
+        <lightning-button label="Back" onclick={handleBack}></lightning-button>
+        <lightning-button variant="brand" label="Next" onclick={handleNext}></lightning-button>
+        </div>
+	</lightning-card>
+</template>
