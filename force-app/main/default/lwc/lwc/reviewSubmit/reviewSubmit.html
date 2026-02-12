@@ -1,0 +1,29 @@
+<template>
+
+    <lightning-card title="Submit Review">
+
+        <lightning-record-edit-form
+            record-id={recordId}
+            object-api-name="Review__c">
+
+            <!-- Validation checkbox -->
+            <lightning-input-field
+                field-name="Validation_Checked__c">
+            </lightning-input-field>
+
+            <!-- Status picklist -->
+            <lightning-input-field
+                field-name="Status__c">
+            </lightning-input-field>
+
+            <lightning-button
+                type="submit"
+                label="Submit Review"
+                variant="brand">
+            </lightning-button>
+
+        </lightning-record-edit-form>
+
+    </lightning-card>
+
+</template>

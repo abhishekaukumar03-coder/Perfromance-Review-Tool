@@ -1,0 +1,49 @@
+<template>
+    <lightning-card title="Priorities / Goals">
+
+        <!-- Add Goal Button -->
+        <div class="slds-m-bottom_medium">
+            <lightning-button
+                label="Add Goal"
+                icon-name="utility:add"
+                onclick={addGoal}
+                disabled={isLocked}>
+            </lightning-button>
+        </div>
+
+        <!-- Goals List -->
+        <template for:each={goals} for:item="goal">
+            <c-goal-editor
+                key={goal.localId}
+                goal={goal}
+                status-options={statusOptions}
+                is-locked={isLocked}
+                ondelete={handleDelete}
+                onchangegoal={handleChange}>
+            </c-goal-editor>
+        </template>
+
+        <!-- Bottom Center Buttons -->
+        <!--<template if:true={hasChanges}>
+            <div class="slds-m-top_large slds-text-align_center">
+
+                <lightning-button
+                    label="Cancel"
+                    variant="neutral"
+                    class="slds-m-right_small"
+                    onclick={handleCancel}
+                    disabled={isLocked}>
+                </lightning-button>
+
+                <lightning-button
+                    label="Save"
+                    variant="brand"
+                    onclick={saveGoals}
+                    disabled={isLocked}>
+                </lightning-button>
+
+            </div>
+        </template>-->
+
+    </lightning-card>
+</template>

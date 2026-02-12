@@ -1,0 +1,79 @@
+<template>
+    <lightning-card>
+
+        <div class="slds-grid slds-gutters slds-wrap slds-p-around_small">
+
+            <!-- Title -->
+            <div class="slds-col slds-size_1-of-3">
+                <lightning-input
+                    label="Title"
+                    value={goal.Title__c}
+                    data-field="Title__c"
+                    onchange={handleChange}
+                    disabled={isLocked}>
+                </lightning-input>
+            </div>
+
+            <!-- Weight -->
+            <div class="slds-col slds-size_1-of-3">
+                <lightning-input
+                    type="number"
+                    label="Weight %"
+                    value={goal.Weight__c}
+                    data-field="Weight__c"
+                    onchange={handleChange}
+                    disabled={isLocked}>
+                </lightning-input>
+            </div>
+
+            <!-- Status Picklist -->
+            <div class="slds-col slds-size_1-of-3">
+                <lightning-combobox
+                    label="Status"
+                    value={goal.Status__c}
+                    options={statusOptions}
+                    data-field="Status__c"
+                    onchange={handleChange}
+                    disabled={isLocked}>
+                </lightning-combobox>
+            </div>
+
+            <!-- Delete Button -->
+            <div class="slds-col slds-size_1-of-1 slds-m-top_small slds-text-align_right">
+                <lightning-button-icon
+                    icon-name="utility:delete"
+                    variant="destructive"
+                    alternative-text="Delete"
+                    onclick={deleteGoal}
+                    disabled={isLocked}>
+                </lightning-button-icon>
+            </div>
+
+            <!-- Self Score -->
+            <!--<div class="slds-col slds-size_1-of-5">
+                <lightning-input
+                    type="number"
+                    label="Self Score"
+                    value={goal.Self_Score__c}
+                    data-field="Self_Score__c"
+                    onchange={handleChange}>
+                </lightning-input>
+            </div>
+
+            
+            <div class="slds-col slds-size_1-of-5">
+                <lightning-input
+                    type="number"
+                    label="Manager Score"
+                    value={goal.Manager_Score__c}
+                    data-field="Manager_Score__c"
+                    onchange={handleChange}>
+                </lightning-input>
+            </div> -->
+
+            
+
+        </div>
+
+    </lightning-card>
+</template>

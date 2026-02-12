@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Overall Comments on Priorities">
+
+        <div class="slds-p-around_medium">
+
+            <!-- Employee Comments -->
+            <lightning-textarea
+                label="Employee Comments"
+                value={employeeComments}
+                onchange={handleEmployeeChange}
+                disabled={employeeCommentDisabled}>
+            </lightning-textarea>
+
+            <!-- Manager Comments -->
+            <lightning-textarea
+                label="Manager Comments"
+                value={managerComments}
+                onchange={handleManagerChange}
+                disabled={managerCommentDisabled}
+                class="slds-m-top_small">
+            </lightning-textarea>
+
+        </div>
+
+        <!-- LOCAL SAVE/CANCEL REMOVED -->
+
+    </lightning-card>
+</template>

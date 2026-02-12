@@ -1,0 +1,131 @@
+<template>
+
+    <!-- Main Container -->
+    <div class={containerClass}>
+
+        <c-review-employee-info
+            record-id={recordId}
+            is-locked={baseLocked}>
+        </c-review-employee-info>
+
+        <c-review-introduction
+            record-id={recordId}
+            is-locked={baseLocked}>
+        </c-review-introduction>
+
+        <c-review-priorities
+            record-id={recordId}
+            is-locked={goalsLocked}>
+        </c-review-priorities>
+
+        <c-review-comments
+            record-id={recordId}
+            is-locked={commentsLocked}
+            is-employee={isEmployee}
+            is-manager={isManager}>
+        </c-review-comments>
+
+        <template if:true={showManagerSection}>
+            <c-review-validation
+                record-id={recordId}
+                is-locked={managerSectionLocked}>
+            </c-review-validation>
+        </template>
+
+        <template if:true={showManagerSection}>
+            <c-review-final-reflection
+                record-id={recordId}
+                current-user-id={currentUserId}
+                is-locked={managerSectionLocked}>
+            </c-review-final-reflection>
+        </template>
+
+        <c-review-comment1
+            record-id={recordId}
+            is-locked={commentsLocked}
+            is-employee={isEmployee}
+            is-manager={isManager}>
+        </c-review-comment1>
+
+    </div>
+
+    <!-- ================= GLOBAL SAVE ================= -->
+    <template if:true={showGlobalButtons}>
+        <div class="slds-m-top_x-large slds-text-align_center">
+
+            <lightning-button
+                label="Cancel"
+                variant="neutral"
+                class="slds-m-right_small"
+                onclick={handleGlobalCancel}>
+            </lightning-button>
+
+            <lightning-button
+                label="Save"
+                variant="brand"
+                onclick={handleGlobalSave}>
+            </lightning-button>
+
+        </div>
+    </template>
+    <!-- ================================================= -->
+
+
+    <!-- Employee Submit -->
+    <template if:true={showEmployeeSubmit}>
+        <div class="slds-m-top_x-large slds-text-align_center">
+            <lightning-button
+                label="Submit Review"
+                variant="brand"
+                onclick={handleSubmit}>
+            </lightning-button>
+        </div>
+    </template>
+
+    <!-- Manager Complete -->
+    <template if:true={showManagerComplete}>
+        <div class="slds-m-top_x-large slds-text-align_center">
+            <lightning-button
+                label="Complete Review"
+                variant="brand"
+                onclick={handleManagerComplete}>
+            </lightning-button>
+        </div>
+    </template>
+
+    <!-- Confirmation Modal -->
+    <template if:true={showModal}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium">
+                        Confirm Submission
+                    </h2>
+                </header>
+
+                <div class="slds-modal__content slds-p-around_medium">
+                    Are you sure you want to submit this review?
+                </div>
+
+                <footer class="slds-modal__footer">
+                    <lightning-button
+                        label="Cancel"
+                        class="slds-m-right_small"
+                        onclick={closeModal}>
+                    </lightning-button>
+
+                    <lightning-button
+                        label="Confirm Submit"
+                        variant="brand"
+                        onclick={confirmSubmit}>
+                    </lightning-button>
+                </footer>
+
+            </div>
+        </section>
+
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+</template>

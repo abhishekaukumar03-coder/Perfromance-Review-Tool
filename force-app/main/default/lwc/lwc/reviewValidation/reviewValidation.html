@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title="Validation">
+
+        <div class="slds-p-around_medium">
+            <div class="slds-grid slds-align_absolute-center slds-wrap">
+
+                <!-- Field label BEFORE checkbox -->
+                <div class="slds-m-right_small">
+                    <b>People Manager Validation:</b>
+                </div>
+
+                <lightning-input
+                    type="checkbox"
+                    label="I confirm I had a conversation with my Employee on their performance and development this year"
+                    checked={validationChecked}
+                    onchange={handleChange}
+                    disabled={isCheckboxDisabled}>
+                </lightning-input>
+            </div>
+        
+
+            
+
+        </div>
+
+        <!-- Bottom Center Buttons -->
+        <template if:true={hasChanges}>
+            <div class="slds-text-align_center slds-m-bottom_medium">
+
+                <lightning-button
+                    label="Cancel"
+                    class="slds-m-right_small"
+                    onclick={handleCancel}
+                    disabled={isCheckboxDisabled}>
+                </lightning-button>
+
+                <lightning-button
+                    label="Save"
+                    variant="brand"
+                    onclick={handleSave}
+                    disabled={isCheckboxDisabled}>
+                </lightning-button>
+
+            </div>
+        </template>
+
+    </lightning-card>
+</template>
